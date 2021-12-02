@@ -51,6 +51,10 @@ export const Map = () => {
   const [toggleIcon, setToggleIcon] = useState(false)
   const [bins, setBins] = useState([]);
 
+  // const filterBins =(e) => {
+  //   console.log(e.target.value)
+  // }
+
   const [dragIcon, setDragIcon] = useState({
     latitude: 50.082027979423236,
     longitude: 14.426295971100695,
@@ -89,6 +93,7 @@ export const Map = () => {
   useEffect(() => {
     fetchBins();
   }, []);
+
 
 
 	return(
@@ -153,7 +158,7 @@ export const Map = () => {
     offsetLeft={-15}
     offsetTop={-15}
       >
-    <MdLocationPin color="red" size={40} />
+    <a href="https://stamen-tiles.a.ssl.fastly.net/toner" target="blank"><MdLocationPin color="red" size={40}/></a>
     </Marker>
     
       ))}
@@ -205,7 +210,9 @@ export const Map = () => {
   <button onClick={() => setToggleIcon(!toggleIcon)}>
     {toggleIcon ? 'show' : 'hide'} parking
   </button>
+    {/* <button value="PAPPIR" onClick={filterBins}> filter pappir </button> */}
 
+       {/* <button value="PAPPIR" onClick={bins.features.filter((e))}> filter pappir </button> */}
 
   </>
 
