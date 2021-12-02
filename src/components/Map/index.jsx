@@ -8,20 +8,6 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 
 import './style.css'
 
-// const geojson = {
-//   type: 'FeatureCollection',
-//   features: [
-//     {type: 'Feature', geometry: {type: 'Point', coordinates: [-122.4, 37.8]}}
-//   ]
-// };
-
-// import { getBins } from './geojson';
-
-{/* <GeoJSON data={getBins} /> */}
-
-
-
-
 
 
 
@@ -146,9 +132,6 @@ export const Map = () => {
    }}
 	>
 
-{/* <Source id="my-data" type="geojson" data={geojson}>
-        <Layer />
-    </Source> */}
 
 
 
@@ -202,19 +185,6 @@ export const Map = () => {
       Czechitas
     </Popup>}
 
-    {/* {bins
-      .map((bin) => (
-      <Marker
-        key={bin.id}
-        latitude={bin.latitude}
-        longitude={bin.longitude}
-        offsetLeft={-15}
-        offsetTop={-15}
-      >
-        <place.iconUrl size={40} />
-      </Marker>
-
-  ))} */}
 
 
       {places
