@@ -153,7 +153,7 @@ export const Map = () => {
     offsetLeft={-15}
     offsetTop={-15}
       >
-    <MdLocationPin size={40} />
+    <MdLocationPin color="red" size={40} />
     </Marker>
     
       ))}
