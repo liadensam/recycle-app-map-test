@@ -57,14 +57,14 @@ export const Map = () => {
   // }
 
   const [dragIcon, setDragIcon] = useState({
-    latitude: 50.082027979423236,
-    longitude: 14.426295971100695,
+    latitude: 50.08147136893371,
+    longitude: 14.427310912961879,
   })
 
   const [viewport, setViewport] = useState({
-    latitude: 50.0833715,
-    longitude: 14.4252452,
-    zoom: 15,
+    latitude: 64.13187000601103,
+    longitude: -21.945205972837428,
+    zoom: 10,
   })
 
   // useEffect (
@@ -103,7 +103,7 @@ export const Map = () => {
     <>
     <ReactMapGL
 		{...viewport}
-		width="100%"
+		width="100vw"
 		height={400}
 		onViewportChange={(nextViewport) => setViewport(nextViewport)}
     onClick={(event) =>
