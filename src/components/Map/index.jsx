@@ -49,6 +49,7 @@ export const Map = () => {
 
   const [popupOpen, setPopupOpen] = useState(false)
   const [toggleIcon, setToggleIcon] = useState(false)
+  const [open, setOpen] = useState(true)
   const [bins, setBins] = useState([]);
 
   // const filterBins =(e) => {
@@ -93,6 +94,8 @@ export const Map = () => {
   useEffect(() => {
     fetchBins();
   }, []);
+
+  
 
 
 
@@ -157,6 +160,7 @@ export const Map = () => {
     longitude={bin.geometry.coordinates[0]}
     offsetLeft={-15}
     offsetTop={-15}
+    className={open ? "hide" : null}
       >
     <a href="https://stamen-tiles.a.ssl.fastly.net/toner" target="blank"><MdLocationPin color="red" size={40}/></a>
     </Marker>
@@ -212,7 +216,13 @@ export const Map = () => {
   </button>
     {/* <button value="PAPPIR" onClick={filterBins}> filter pappir </button> */}
 
-       {/* <button value="PAPPIR" onClick={bins.features.filter((e))}> filter pappir </button> */}
+    <button
+        onClick={() => {
+          setOpen(!open);
+        }}
+      >
+        show bins
+      </button>
 
   </>
 
