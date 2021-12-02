@@ -148,8 +148,16 @@ export const Map = () => {
     <GeolocateControl />
   </div>
     
-    <Marker latitude={50.0833715} longitude={14.4252452} offsetLeft={-25} offsetTop={-50}>
-    <button className="marker-button" onClick={() => setPopupOpen(true)}><MdLocationPin size={40} /></button>
+    <Marker 
+    latitude={50.0833715} 
+    longitude={14.4252452} 
+    offsetLeft={-25} 
+    offsetTop={-50}>
+      <button
+      className="marker-button" 
+      onClick={() => setPopupOpen(true)}>
+        <MdLocationPin size={40} />
+      </button>
       
     </Marker>
 
@@ -162,7 +170,9 @@ export const Map = () => {
     offsetTop={-15}
     className={open ? "hide" : null}
       >
-    <a href="https://stamen-tiles.a.ssl.fastly.net/toner" target="blank"><MdLocationPin color="red" size={40}/></a>
+      <a href="https://stamen-tiles.a.ssl.fastly.net/toner" target="blank">
+        <MdLocationPin color="red" size={40}/>
+      </a>
     </Marker>
     
       ))}
@@ -179,7 +189,9 @@ export const Map = () => {
         longitude: event.lngLat[0],
       })
     }>
-    <MdLocalCafe size={40} style={{ pointerEvents: 'none' }} />
+    <MdLocalCafe 
+    size={40} 
+    style={{ pointerEvents: 'none' }} />
     </Marker>
 
     
@@ -211,7 +223,9 @@ export const Map = () => {
 
   ))}
   </ReactMapGL>
-  <button onClick={() => setToggleIcon(!toggleIcon)}>
+  <button 
+    onClick={() => setToggleIcon(!toggleIcon)}
+    >
     {toggleIcon ? 'show' : 'hide'} parking
   </button>
     {/* <button value="PAPPIR" onClick={filterBins}> filter pappir </button> */}
@@ -222,7 +236,7 @@ export const Map = () => {
         }}
       >
         {open ? 'show' : 'hide'} bins
-      </button>
+    </button>
 
   </>
 
