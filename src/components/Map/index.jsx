@@ -170,7 +170,7 @@ export const Map = () => {
     offsetTop={-15}
     className={open ? "hide" : null}
       >
-      <a href="https://stamen-tiles.a.ssl.fastly.net/toner" target="blank">
+      <a href="https://reykjavik.is/thjonusta/hirda-urgangs" target="blank">
         <MdLocationPin color="red" size={40}/>
       </a>
     </Marker>
