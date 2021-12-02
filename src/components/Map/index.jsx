@@ -1,20 +1,32 @@
-import 'mapbox-gl/dist/mapbox-gl.css'
 import { useState, useEffect } from 'react';
 import ReactMapGL, { Marker, Popup, NavigationControl, GeolocateControl } from 'react-map-gl'
 import {MdLocationPin} from 'react-icons/md'
 import {MdIcecream} from 'react-icons/md'
 import {MdLocalParking} from 'react-icons/md'
 import {MdLocalCafe} from 'react-icons/md'
-
-// import { getBins } from './geojson';
-
-
-
-
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 import './style.css'
 
+// const geojson = {
+//   type: 'FeatureCollection',
+//   features: [
+//     {type: 'Feature', geometry: {type: 'Point', coordinates: [-122.4, 37.8]}}
+//   ]
+// };
+
+// import { getBins } from './geojson';
+
+{/* <GeoJSON data={getBins} /> */}
+
+
+
+
+
+
+
 // const token = process.env.REACT_APP_MAP_TOKEN
+// mapboxgl.accessToken = token
 
 const geoJsonUrl = 'https://lukrgatt.reykjavik.is/server/rest/services/OpinGognThjonusta/Endurvinnslugamar/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson';
 
@@ -81,7 +93,7 @@ export const Map = () => {
       .then(response => response.json())
       .then(data => {
       console.log(data);
-       setBins(data)
+      //  setBins(data)
        setBins({features: data['features'], isLoading: false})
       })
   }
@@ -106,6 +118,7 @@ export const Map = () => {
         longitude: event.lngLat[0],
       })
     }
+
 
 
     mapStyle={{
@@ -133,6 +146,10 @@ export const Map = () => {
    }}
 	>
 
+{/* <Source id="my-data" type="geojson" data={geojson}>
+        <Layer />
+    </Source> */}
+
 
 
   <div className="navigation">
@@ -144,6 +161,20 @@ export const Map = () => {
     <button className="marker-button" onClick={() => setPopupOpen(true)}><MdLocationPin size={40} /></button>
       
     </Marker>
+
+    {bins.features?.map(bin => ( 
+    <Marker
+    key={bin.id}
+    latitude={bin.geometry.coordinates[1]}
+    longitude={bin.geometry.coordinates[0]}
+    offsetLeft={-15}
+    offsetTop={-15}
+      >
+    <MdLocationPin size={40} />
+    </Marker>
+    
+      ))}
+
 
     <Marker 
       {...dragIcon} 
@@ -204,14 +235,7 @@ export const Map = () => {
   <button onClick={() => setToggleIcon(!toggleIcon)}>
     {toggleIcon ? 'show' : 'hide'} parking
   </button>
-  {JSON.stringify(bins)}
 
-
-    {/* <div className='item-container'> */}
-         {/* {JSON.stringify(bins)} */}
-        {/* {bins?.map((bin, index) => ( <p key={index}>{bin.name} || {bin.geometry} || {bin.geometry[0]}</p>  ))}  */}
-         {/* {bins?.map((bin, index) => ( <Marker key={index} latitude={bin.geometry[0]} longitude={bin.geometry[1]} />  ))} */}
-    {/* </div> */}
 
   </>
 
