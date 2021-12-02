@@ -1,0 +1,18 @@
+.marker-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  outline: none;
+  cursor: pointer;
+}
+
+.navigation {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.navigation > * {
+  position: static !important;
+}
