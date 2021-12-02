@@ -221,7 +221,7 @@ export const Map = () => {
           setOpen(!open);
         }}
       >
-        show bins
+        {open ? 'show' : 'hide'} bins
       </button>
 
   </>
